@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman",Times,serif;
+}
+.navbar{
+    background-color: #F2FEDC;
+    
+}
+.navbar-brand{
+background-color: #F2FEDC;
+margin: 0 auto;
+}
+.navbar-toggler{
+    position: relative;
+    right: 112rem;
+}
