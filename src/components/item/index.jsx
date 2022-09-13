@@ -1,7 +1,14 @@
 import React from 'react'
 import './styles.css'
+import { useNavigate } from 'react-router-dom'
+
 
 const Item = ({product}) => {
+    const navigate = useNavigate();
+    const handleNavigate = () =>{
+        navigate(`/detail/${product.id}`)
+        
+    }
     return (
         <div className='row'>
         <div className="card mx-auto col-md-1 col-10 mt-5">
@@ -9,7 +16,7 @@ const Item = ({product}) => {
                 <div className='cvp'>
                     <h5 className="card-title font-weight-bold">{product.nombre}</h5>
                     <p className="card-text">${product.precio}</p>
-                    <a href="#" class="btn details px-auto">Ver detalles</a><br />
+                    <p class="btn details px-auto" onClick={handleNavigate}>Ver detalles </p>
                     <a href="#" class="btn cart px-auto">Añadir al carrito</a>
                 </div>
             </div>
