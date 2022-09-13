@@ -35,6 +35,7 @@ body{
         .card-body {
             width: fit-content;
             position: relative;
+            width: 244px;
         }
 
         .btn {
