@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react";
 
+import React, {useState, useEffect} from "react";
+import './styles.css';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -32,15 +33,16 @@ const ItemCount = ({stock, initial, onAdd}) => {
     useEffect(()=> {
         console.log("Se actualiza el estado!")
     }, [count]);
+return(
+    <div class="contenedor">
+                    <p class="contar" id="contar">0</p>
 
-    return (
-    <div>
-        <button onClick={handleDecrement}>-</button>
-        <h2>{count}</h2>
-        <button onClick={handleAdd}>+</button>
-        <button onClick={addCart}>Agregar al carrito</button>
+    <div class="botones">
+        <button class="incr" onClick={handleAdd} ><span class="material-icons-round">add</span></button>
+        <button class="decr" onClick={handleDecrement}><span class="material-icons-round">remove</span></button>
     </div>
-    );
-};
+    </div>
+)
+}
 
 export default ItemCount;

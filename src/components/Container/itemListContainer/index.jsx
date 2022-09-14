@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.css';
 
 import ItemList from '../../itemList';
+import ItemCount from '../../itemCount/itemCount';
 
 
 
@@ -36,7 +37,9 @@ const ItemListContainer = ({greeting}) => {
     }, [])
 
     console.log(productos)
-
+    const agregarAlCarrito = () =>{
+console.log("se grego al carrito")
+    }
 
     return (
     <div className='item-list-container'>

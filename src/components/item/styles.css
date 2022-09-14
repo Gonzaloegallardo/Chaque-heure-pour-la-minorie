@@ -47,7 +47,8 @@ body{
         }
 
         .card {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
-            border-radius: 5px;
-            padding-bottom: 10px;
+            border-radius: 27px;
+            background: #ffffff;
+            box-shadow:  36px 36px 71px #141414,
+                         -36px -36px 71px #ada8a8;
         }
