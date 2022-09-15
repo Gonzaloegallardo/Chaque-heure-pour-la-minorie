@@ -38,19 +38,17 @@ return (
             <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
-                    Casio
-                </a>
+                <Link to="/categoria/Casio" className="nav-link" aria-current="page">Casio</Link>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="#">
-                    Timex
-                </a>
+                <Link to="/categoria/Timex" className="nav-link" >Timex </Link> 
+                    
+                
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="#">
-                    Cartier
-                </a>
+                <Link to="/cateogira/Seiko" className="nav-link">Cartier</Link>
+                    
+                
                 </li>
                 <li className="nav-item dropdown">
                 </li>
