@@ -1,12 +1,21 @@
 import ItemCount from "../itemCount/itemCount"
-
-
-
-
-
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({product}) => {
+    const navigate = useNavigate();
 
+const [qty, setQty] = useState(0)
+const addCart = (quantity) =>{
+
+    setQty(quantity);
+
+};
+const handleFinish = ()=>{
+    navigate ('/cart');
+    
+}
+console.log(qty)
 return (
 
 
@@ -19,7 +28,9 @@ return (
                     <h5 className="card-title font-weight-bold">{product.nombre}</h5>
                     <p className="card-text">${product.precio}</p>
                     <button  className="btn cart px-auto">Añadir al carrito</button>
-                    <ItemCount/>
+                    <p> stock: {product.stock}</p>
+                
+                    { !qty ? ( <ItemCount stock={product.stock} initial={1} onAdd={addCart}/>) : (<button onClick={handleFinish}> finalizar la compra</button>)}
                 </div>
             </div>
         </div>

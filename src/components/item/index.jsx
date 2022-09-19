@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom'
-import ItemCount from "../itemCount/itemCount"
+
 
 const Item = ({product}) => {
     const navigate = useNavigate();
@@ -19,7 +19,6 @@ const Item = ({product}) => {
                     <h5 className="card-title font-weight-bold">{product.nombre}</h5>
                     <p className="card-text">${product.precio}</p>
                     <p class="btn details px-auto" onClick={handleNavigate}>Ver detalles </p>
-
                 </div>
             </div>
         </div>

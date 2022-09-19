@@ -46,7 +46,7 @@ return (
                 
                 </li>
                 <li className="nav-item">
-                <Link to="/cateogira/Seiko" className="nav-link">Cartier</Link>
+                <Link to="/categoria/Seiko" className="nav-link">Cartier</Link>
                     
                 
                 </li>

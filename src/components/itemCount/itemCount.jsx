@@ -15,7 +15,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     const handleDecrement = () => {
-        //Desarrollo del decrement
+        if(count < stock) {
+            setCount(count-1);
+        }
     }
 
     const addCart = () => {
@@ -26,20 +28,21 @@ const ItemCount = ({stock, initial, onAdd}) => {
     //Montaje del componente
     useEffect(()=> {
         //El array de dependencias vacío implica que el callback se ejecutará cuando se MONTA el componente por UNICA vez.
-        console.log("Se montó el ItemCount");
     }, []);
 
     //La función callback dentro del useEffect se ejecutará cuando se MONTE el componente, y cuando se ACTUALICE el valor del count
     useEffect(()=> {
-        console.log("Se actualiza el estado!")
     }, [count]);
 return(
     <div class="contenedor">
-                    <p class="contar" id="contar">0</p>
+                    <p class="contar" id="contar"></p>
 
     <div class="botones">
+    <h2>{count}</h2>
         <button class="incr" onClick={handleAdd} ><span class="material-icons-round">add</span></button>
+
         <button class="decr" onClick={handleDecrement}><span class="material-icons-round">remove</span></button>
+        <button className="cart-button" onClick={addCart}>Agregar al carro</button>
     </div>
     </div>
 )
