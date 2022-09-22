@@ -1,8 +1,9 @@
 import NavBar from './components/NavBar';
 import './App.css';
-import ItemListContainer from './components/Container/itemListContainer';
-import ItemDetailContainer from './components/Container/itemDetailContainer';
-import Cart from './components/Container/CartContainer';
+import ItemListContainer from './Container/itemListContainer';
+import ItemDetailContainer from './Container/itemDetailContainer'
+import Cart from './Container/CartContainer';
+import ShopProvider from './components/Context';
 import {
   BrowserRouter,
   Routes,
@@ -11,6 +12,7 @@ import {
 
 function App() {
   return (
+    <ShopProvider>
     <BrowserRouter>
     <div>
     <NavBar/>
@@ -28,6 +30,7 @@ function App() {
 
     </div>
     </BrowserRouter>
+    </ShopProvider>
   );
 }
 

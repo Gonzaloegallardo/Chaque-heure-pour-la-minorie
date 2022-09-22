@@ -5,10 +5,8 @@ const NavBar = () => {
 return (
     <nav className="navbar fixed-top">
     <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-        Chaque heure pour la minorie
-
-        </a>
+        <Link to="/" className= "navbar-brand" >Chaque heure pour la minorie </Link>
+        
         <button
         className="navbar-toggler"
         type="button"
@@ -46,7 +44,7 @@ return (
                 
                 </li>
                 <li className="nav-item">
-                <Link to="/categoria/Seiko" className="nav-link">Cartier</Link>
+                <Link to="/categoria/Seiko" className="nav-link">Seiko</Link>
                     
                 
                 </li>
