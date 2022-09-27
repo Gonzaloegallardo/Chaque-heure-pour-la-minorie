@@ -1,26 +1,36 @@
 import ItemCount from "../itemCount/itemCount"
-import React, {useContext, useState } from "react"
+import React, {useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { Shop } from "../Context";
+import { useCart } from "../../Context/CartContext";
+
 
 const ItemDetail = ({product}) => {
-    const navigate = useNavigate();
+    const[count, setCount]= useState(1)
+    const [compra, setCompra]= useState(false)
+    const {nombre,  precio, stock, imagen, id}= product
+    const navegar = useNavigate()
+    const{addItem, addItem2}=useCart()
 
-const [qty, setQty] = useState(0)
-const {addItem} = useContext(Shop);
+const [qty,] = useState(1)
 
-const addCart = (quantity) =>{
-
-    setQty(quantity);
-
-};
-
-const handleFinish = ()=>{
-    const productToSave = {...product, quantity: qty}
-    addItem(productToSave)
-    navigate ('/cart');
-    
+const onAdd = () => {
+    const purchase = {
+    id,
+    nombre,
+    precio,
+    stock, 
+    imagen,
+    quantity:count
+    }
+    setCompra(true)
+    addItem(purchase)
+    addItem2(product,count)
 }
+
+
+
+
+
 console.log(qty)
 return (
 
@@ -33,10 +43,15 @@ return (
                 <img src={product.imagen} width ="200em" height="300em" alt="" />
                     <h5 className="card-title font-weight-bold">{product.nombre}</h5>
                     <p className="card-text">${product.precio}</p>
-                    <button  className="btn cart px-auto">Añadir al carrito</button>
+
                     <p> stock: {product.stock}</p>
                 
-                    { !qty ? ( <ItemCount stock={product.stock} initial={1} onAdd={addCart}/>) : (<button onClick={handleFinish}> finalizar la compra</button>)}
+                    { !compra 
+        ? <ItemCount stock={stock} initial={1} onAdd={onAdd} count={count} setCount={setCount}/>
+        : <div style={{display:'flex', justifyContent:'space-around', alignItems:'center'}}>
+            <button className="btn btn-warning" onClick={()=>navegar('/')}>Seguir Comprando</button>
+            <button className="btn btn-info" onClick={()=>navegar('/cart')}>Ir al carrito</button>
+            </div>}
                 </div>
             </div>
         </div>

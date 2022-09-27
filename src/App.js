@@ -3,7 +3,8 @@ import './App.css';
 import ItemListContainer from './Container/itemListContainer';
 import ItemDetailContainer from './Container/itemDetailContainer'
 import Cart from './Container/CartContainer';
-import ShopProvider from './components/Context';
+
+import { CartProvider } from './Context/CartContext';
 import {
   BrowserRouter,
   Routes,
@@ -12,7 +13,7 @@ import {
 
 function App() {
   return (
-    <ShopProvider>
+    <CartProvider>
     <BrowserRouter>
     <div>
     <NavBar/>
@@ -30,7 +31,7 @@ function App() {
 
     </div>
     </BrowserRouter>
-    </ShopProvider>
+    </CartProvider>
   );
 }
 
