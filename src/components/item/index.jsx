@@ -14,10 +14,10 @@ const Item = ({product}) => {
         <div className="card mx-auto col-md-10 col-10 mt-5">
             <div className="card-body text-center mx-auto">
                 <div className='cvp'>
-                    <img src={product.imagen} width ="200em" height="300em" alt="" />
+                    <img src={product.image} width ="200em" height="300em" alt="" />
 
-                    <h5 className="card-title font-weight-bold">{product.nombre}</h5>
-                    <p className="card-text">${product.precio}</p>
+                    <h5 className="card-title font-weight-bold">{product.title}</h5>
+                    <p className="card-text">${product.price}</p>
                     <p className="btn details px-auto" onClick={handleNavigate}>Ver detalles </p>
                 </div>
             </div>

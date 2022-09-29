@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail'
+import { doc, getDoc } from "firebase/firestore";
+import { db } from '../../firebase/config';
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState({})
 
     const {productId} = useParams();
 
-    console.log(productId);
     
     useEffect(()=> {
 
         const getProducts = async () => {
             try {
-                const response = await fetch(`https://631f2d4458a1c0fe9f625253.mockapi.io/api/v1/productos/${productId}`);
-                const data = await response.json();
-                setProductDetail(data);
+                
+
+const docRef = doc(db, "products", productId);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+    setProductDetail({id: docSnap.id, ...docSnap.data()});
+} else {
+  // doc.data() will be undefined in this case
+    console.log("No such document!");
+}
+                
+
             } catch (error) {
                 console.log(error);
             }
@@ -23,7 +34,7 @@ const ItemDetailContainer = () => {
 
     }, [productId])
 
-    console.log(productDetail);
+
 
     return <ItemDetail product={productDetail}/>;
 };

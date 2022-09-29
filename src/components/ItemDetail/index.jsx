@@ -7,7 +7,7 @@ import { useCart } from "../../Context/CartContext";
 const ItemDetail = ({product}) => {
     const[count, setCount]= useState(1)
     const [compra, setCompra]= useState(false)
-    const {nombre,  precio, stock, imagen, id}= product
+    const {title,  price, stock, image, id}= product
     const navegar = useNavigate()
     const{addItem, addItem2}=useCart()
 
@@ -16,10 +16,10 @@ const [qty,] = useState(1)
 const onAdd = () => {
     const purchase = {
     id,
-    nombre,
-    precio,
+    title,
+    price,
     stock, 
-    imagen,
+    image,
     quantity:count
     }
     setCompra(true)
@@ -40,9 +40,9 @@ return (
         <div className="card mx-auto col-md-3 col-10 mt-5">
             <div className="card-body text-center mx-auto">
                 <div className='cvp'>
-                <img src={product.imagen} width ="200em" height="300em" alt="" />
-                    <h5 className="card-title font-weight-bold">{product.nombre}</h5>
-                    <p className="card-text">${product.precio}</p>
+                <img src={product.image} width ="200em" height="300em" alt="" />
+                    <h5 className="card-title font-weight-bold">{product.title}</h5>
+                    <p className="card-text">${product.price}</p>
 
                     <p> stock: {product.stock}</p>
                 

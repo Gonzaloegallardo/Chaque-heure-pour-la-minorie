@@ -3,36 +3,40 @@ import './styles.css';
 
 import ItemList from '../../components/itemList';
 import { useParams } from 'react-router-dom';
-
+import { db } from '../../firebase/config';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 const ItemListContainer = ({greeting}) => {
-
+console.log(db)
     const [productos, setProductos] = useState([])
     const {categoryId} = useParams();
 
 
 
-    useEffect(()=> {
+    useEffect(() => {
+        (async () => {
+        
+          //obtenemos productos Firestore
+            try {
     
-        (async ()=> {
-    try {
-        if (categoryId){
-            const response = await fetch("https://631f2d4458a1c0fe9f625253.mockapi.io/api/v1/productos/categoria/" + categoryId);
-            const productos = await response.json();
-            setProductos(productos)
+            const q = categoryId ? query(collection(db, "products"), where("category", "==", categoryId)) : query(collection(db, "products"));
+    
+            const querySnapshot = await getDocs(q);
+            const productosFirebase = [];
+    
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+                productosFirebase.push({id: doc.id, ...doc.data()})
+            });
+    
+            setProductos(productosFirebase);
+        } catch (error) {
+            console.log(error);
         }
-        else{
-            const response = await fetch("https://631f2d4458a1c0fe9f625253.mockapi.io/api/v1/productos");
-            const productos = await response.json();
-            setProductos(productos);
-        }
-    } catch (error) {
-        console.log(error)
-    }
-    })();
-
-    }, [categoryId])
+        })();
+    
+    }, [categoryId]);
 
     console.log(productos)
 
