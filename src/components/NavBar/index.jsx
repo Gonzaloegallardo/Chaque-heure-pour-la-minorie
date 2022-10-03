@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget";
 const NavBar = () => {
 return (
-    <nav className="navbar fixed-top">
+    <nav className="navbar">
     <div className="container-fluid">
         <Link to="/" className= "navbar-brand" >Chaque heure pour la minorie </Link>
         

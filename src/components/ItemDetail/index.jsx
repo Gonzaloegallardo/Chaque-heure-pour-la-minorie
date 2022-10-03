@@ -19,7 +19,7 @@ const onAdd = () => {
     title,
     price,
     stock, 
-    image,
+    image   ,
     quantity:count
     }
     setCompra(true)

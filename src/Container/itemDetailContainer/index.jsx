@@ -10,10 +10,12 @@ const ItemDetailContainer = () => {
 
     
     useEffect(()=> {
+      //le decimos nuestra base de datos y en que collecion tiene que ir
 
         const getProducts = async () => {
             try {
                 
+      //le decimos nuestra base de datos y en que collecion tiene que ir
 
 const docRef = doc(db, "products", productId);
 const docSnap = await getDoc(docRef);
