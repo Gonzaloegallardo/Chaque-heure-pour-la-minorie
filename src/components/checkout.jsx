@@ -43,7 +43,7 @@ const Checkout = () => {
 
     }
     if (loader) {
-        return <p>Cargading...</p>
+        return <p>Cargando...</p>
     }
     return (
         <div>
